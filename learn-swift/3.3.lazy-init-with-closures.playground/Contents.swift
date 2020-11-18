@@ -77,3 +77,13 @@ class IntenseMathProblem {
 
 let problem = IntenseMathProblem() // no value for complexNumber
 problem.complexNumber // now, complexNumber is 1
+
+// application example
+class CompressionManager {
+  lazy var compressedImage: UIImage = {
+    let image = UIImage()
+    // compress the image
+    // logic
+    return image
+  }()
+}
