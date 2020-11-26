@@ -115,3 +115,52 @@ func removing(_ item: Int, from array: [Int]) -> [Int] {
 }
 
 print("3. result: \(removing(2, from: array6))")
+
+
+
+/*-----------------------------------------------------------
+ 4. Arrays have a reversed() method that returns an array holding the same elements as the original array, in reverse order. Write a function that does the same thing, without using reversed(). This is the signature of the function:
+ -----------------------------------------------------------*/
+
+let array7 = [1, 2, 3, 4, 5]
+
+func reversed(_ array: [Int]) -> [Int] {
+  var reverseArray: [Int] = []
+  let totalIndices = array.count - 1
+  
+//  for index in 0..<array.count {
+  for index in 0...totalIndices {
+    reverseArray.append(array[totalIndices - index])
+  }
+  
+  return reverseArray
+}
+
+print(reversed(array7))
+
+
+
+/*-----------------------------------------------------------
+ 5. Write a function that returns the middle element of an array. When array size is
+ even, return the first of the two middle elememnts.
+ -----------------------------------------------------------*/
+
+let array8 = [1, 2, 3]
+
+func middle(_ array: [Int]) -> Int? {
+  
+  if !array.isEmpty {
+    
+    if array.count == 1 {
+      return array[0]
+    }
+    
+    let middleIndex = (array.count - 1) / 2
+    return array[middleIndex]
+    
+  }
+  
+  return nil
+}
+
+print(middle(array8))
