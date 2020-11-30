@@ -251,7 +251,16 @@ func occurencesOfCharacters(in text: String) -> [Character: Int] {
   var dict: [Character: Int] = [:]
   
   for i in Array(text) {
-    dict[i, default: 0] += 1
+    // solution 1
+//    dict[i, default: 0] += 1
+    
+    // solution 2
+    if let value = dict[i] {
+      dict[i] = value + 1
+    } else {
+      dict[i] = 1
+    }
+    
   }
   
   return dict
