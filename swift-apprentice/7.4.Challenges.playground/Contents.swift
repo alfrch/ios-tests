@@ -55,42 +55,55 @@ for item in array5 { print(item) }
 let array6 = [1,2, 3, 4, 1, 2, 2, 4, 5]
 
 func removingOnce(_ item: Int, from array: [Int]) -> [Int] {
-//  var newArray: [Int] = array // solution 1 and 2
-  var newArray: [Int] = [] // solution 3
-  var counter = 0
+  /* Solution 1 */
   
-  // solution 1 by removing item on newArray
-//  for (index, number) in newArray.enumerated() {
-//    if count < 1 && item == number {
-//      newArray.remove(at: index)
+//   var resultArray: [Int] = array
+//   var counter = 0
+//
+//   for (index, number) in resultArray.enumerated() {
+//     if counter < 1 && item == number {
+//      resultArray.remove(at: index)
 //      counter += 1
-//    }
-//  }
+//     }
+//   }
   
-  // solution 2 by removing item on newArray
+  /* Solution 2 */
+  
+//  var resultArray: [Int] = array
+//  var counter = 0
+//
 //  for index in 0..<array.count {
 //    if counter < 1 && item == array[index] {
-//      newArray.remove(at: index)
+//      resultArray.remove(at: index)
 //      counter += 1
 //    }
 //  }
   
-  // solution 3 by appending newArray
-  for index in 0..<array.count {
-    if item == array[index] {
-      counter += 1
-      
-      if counter > 1 {
-        newArray.append(array[index])
-      }
-      
-    } else {
-      newArray.append(array[index])
-    }
-    
+  /* Solution 3 */
+  
+//  var resultArray: [Int] = []
+//  var counter = 0
+//
+//  for index in 0..<array.count {
+//    if item == array[index] {
+//      counter += 1
+//
+//      if counter > 1 {
+//        resultArray.append(array[index])
+//      }
+//    } else {
+//      resultArray.append(array[index])
+//    }
+//  }
+  
+  /* Solution 4 */
+  
+  var resultArray = array
+  if let index = array.firstIndex(of: item) {
+    resultArray.remove(at: index)
   }
   
-  return newArray
+  return resultArray
 }
 
 print("2. ", removingOnce(2, from: array6))
@@ -103,7 +116,7 @@ print("2. ", removingOnce(2, from: array6))
  -----------------------------------------------------------*/
 
 func removing(_ item: Int, from array: [Int]) -> [Int] {
-  var newArray: [Int] = array
+  var newArray: [Int] = []
   
   for i in array {
     if item != i {
@@ -125,12 +138,24 @@ print("3. \(removing(2, from: array6))")
 let array7 = [1, 2, 3, 4, 5]
 
 func reversed(_ array: [Int]) -> [Int] {
-  var reverseArray: [Int] = []
-  let totalIndices = array.count - 1
+  /* Solution 1 */
   
-//  for index in 0..<array.count {
-  for index in 0...totalIndices {
-    reverseArray.append(array[totalIndices - index])
+//  var reverseArray: [Int] = []
+//  let totalIndices = array.count - 1
+//
+////  for index in 0..<array.count {
+//  for index in 0...totalIndices {
+//    reverseArray.append(array[totalIndices - index])
+//  }
+//
+//  return reverseArray
+  
+  /* Solution 2 */
+  
+  var reverseArray: [Int] = []
+  
+  for item in array {
+    reverseArray.insert(item, at: 0)
   }
   
   return reverseArray
@@ -148,19 +173,26 @@ print("4. \(reversed(array7))")
 let array8 = [1, 2, 3]
 
 func middle(_ array: [Int]) -> Int? {
+  /* Solution 1 */
   
-  if !array.isEmpty {
-    
-    if array.count == 1 {
-      return array[0]
-    }
-    
-    let middleIndex = (array.count - 1) / 2
-    return array[middleIndex]
-    
+//  if !array.isEmpty {
+//    if array.count == 1 {
+//      return array[0]
+//    }
+//
+//    let middleIndex = (array.count - 1) / 2
+//    return array[middleIndex]
+//  }
+//
+//  return nil
+  
+  /* Solution 2 */
+  
+  guard !array.isEmpty else {
+    return nil
   }
   
-  return nil
+  return array[array.count/2]
 }
 
 print("5. \(middle(array8))")
