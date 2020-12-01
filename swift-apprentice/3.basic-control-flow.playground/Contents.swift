@@ -121,12 +121,12 @@ var hoursWorked = 45
 var price = 0
 
 if hoursWorked > 40 {
-  let hoursOver40 = hoursWorked - 40
-  price += hoursOver40 * 50
-  hoursWorked -= hoursOver40
+  let hoursOver40 = hoursWorked - 40 // 5 = 45 - 40
+  price += hoursOver40 * 50 // 250 = 5 * 50
+  hoursWorked -= hoursOver40 // 40 = 45 - 5
 }
 
-price += hoursWorked * 25
+price += hoursWorked * 25 // 1250 = 250 + (40 * 25)
 print(price)
 print("")
 
