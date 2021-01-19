@@ -1,0 +1,6 @@
+framework module Pods_WallpaperSearch {
+  umbrella header "Pods-WallpaperSearch-umbrella.h"
+
+  export *
+  module * { export * }
+}
